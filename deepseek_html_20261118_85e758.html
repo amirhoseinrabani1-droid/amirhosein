@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>امیرحسین | پورتفولیو</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg: #0a0e17;
+  --bg2: #111827;
+  --card: #151c2c;
+  --blue: #3b82f6;
+  --cyan: #22d3ee;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+a { text-decoration:none; color:inherit; }
+
+/* ===== Navbar ===== */
+nav {
+  position: fixed; top:0; width:100%; z-index:100;
+  background: rgba(10,14,23,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(59,130,246,0.15);
+  padding: 18px 40px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.logo { font-weight:800; font-size:1.3rem; }
+.logo span { color: var(--cyan); }
+.nav-links { display:flex; gap:28px; }
+.nav-links a {
+  color: var(--muted); font-size:0.95rem; transition:0.3s;
+  position:relative;
+}
+.nav-links a:hover { color: var(--cyan); }
+
+/* ===== Hero ===== */
+.hero {
+  min-height:100vh; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center;
+  padding: 0 20px; position:relative;
+  background: radial-gradient(circle at 50% 30%, rgba(59,130,246,0.15), transparent 60%);
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight:800; margin-bottom:20px;
+  background: linear-gradient(90deg, #fff, var(--cyan));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero p {
+  color: var(--muted); font-size:1.1rem; max-width:600px;
+  line-height:1.9; margin-bottom:35px;
+}
+.hero-btns { display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
+.btn {
+  padding: 14px 32px; border-radius:12px; font-weight:600;
+  font-size:0.95rem; transition:0.3s; cursor:pointer; border:none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color:#fff; box-shadow: 0 8px 30px rgba(59,130,246,0.35);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(34,211,238,0.5); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  border:1.5px solid rgba(255,255,255,0.15);
+}
+.btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+.scroll-hint {
+  position:absolute; bottom:30px; color:var(--muted);
+  font-size:1.5rem; animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+
+/* ===== Sections ===== */
+section { padding: 100px 20px; max-width:1100px; margin:0 auto; }
+.section-title {
+  font-size:2rem; font-weight:800; text-align:center;
+  margin-bottom:15px;
+}
+.section-title span { color: var(--cyan); }
+.section-sub {
+  text-align:center; color:var(--muted); margin-bottom:60px;
+  font-size:0.95rem;
+}
+
+/* ===== Skills ===== */
+.skills-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:20px;
+}
+.skill-card {
+  background: var(--card); border-radius:16px; padding:28px 22px;
+  border:1px solid rgba(59,130,246,0.1);
+  transition:0.3s; text-align:center;
+}
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(34,211,238,0.4);
+  box-shadow: 0 15px 40px rgba(34,211,238,0.1);
+}
+.skill-icon { font-size:2.2rem; margin-bottom:14px; }
+.skill-card h3 { font-size:1.1rem; margin-bottom:8px; }
+.skill-card p { color:var(--muted); font-size:0.85rem; line-height:1.7; }
+
+/* ===== Projects ===== */
+.projects-grid {
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap:24px;
+}
+.project-card {
+  background: var(--card); border-radius:18px; overflow:hidden;
+  border:1px solid rgba(59,130,246,0.1); transition:0.3s;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border-color: rgba(34,211,238,0.35);
+}
+.project-thumb {
+  height:150px; display:flex; align-items:center; justify-content:center;
+  font-size:3rem;
+  background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(34,211,238,0.15));
+}
+.project-body { padding:24px; }
+.project-body h3 { font-size:1.15rem; margin-bottom:10px; }
+.project-body p { color:var(--muted); font-size:0.88rem; line-height:1.8; margin-bottom:16px; }
+.tags { display:flex; gap:8px; flex-wrap:wrap; }
+.tag {
+  background: rgba(59,130,246,0.12); color: var(--cyan);
+  font-size:0.72rem; padding:5px 12px; border-radius:20px;
+  border:1px solid rgba(34,211,238,0.2);
+}
+
+/* ===== Contact ===== */
+.contact-box {
+  background: var(--card); border-radius:20px; padding:50px 30px;
+  text-align:center; border:1px solid rgba(59,130,246,0.15);
+}
+.contact-box h2 { font-size:1.8rem; margin-bottom:15px; }
+.contact-box p { color:var(--muted); margin-bottom:30px; }
+.socials { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.social-btn {
+  width:52px; height:52px; border-radius:14px;
+  background: rgba(59,130,246,0.1); border:1px solid rgba(34,211,238,0.2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; transition:0.3s;
+}
+.social-btn:hover {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  transform: translateY(-4px);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align:center; padding:30px; color:var(--muted);
+  font-size:0.85rem; border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  nav { padding: 15px 20px; }
+  .nav-links { display:none; }
+  section { padding: 70px 18px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">امیرحسین<span>.</span></div>
+  <div class="nav-links">
+    <a href="#skills">مهارت‌ها</a>
+    <a href="#projects">پروژه‌ها</a>
+    <a href="#contact">تماس</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>سلام، من امیرحسین‌ام 👋</h1>
+  <p>
+    برنامه‌نویس، طراح گرافیک و علاقه‌مند به دنیای فناوری.
+    از ساخت ربات و نرم‌افزار گرفته تا طراحی و تولید محتوا —
+    همیشه دنبال ساختن چیزهای جدیدم.
+  </p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">پروژه‌هام رو ببین</a>
+    <a href="#contact" class="btn btn-outline">ارتباط با من</a>
+  </div>
+  <div class="scroll-hint">↓</div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title">مهارت‌های <span>من</span></h2>
+  <p class="section-sub">حوزه‌هایی که توشون کار می‌کنم و یاد می‌گیرم</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🐍</div>
+      <h3>Python</h3>
+      <p>ساخت نرم‌افزار، ربات تلگرام، ابزارهای کاربردی</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">☕</div>
+      <h3>Java</h3>
+      <p>توسعه کلاینت و سرور Minecraft</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎨</div>
+      <h3>طراحی گرافیک</h3>
+      <p>پوستر، لوگو، بنر و محتوای بصری</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎮</div>
+      <h3>Minecraft</h3>
+      <p>BedWars، PvP، Bridging و ساخت نقشه</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎬</div>
+      <h3>تدوین</h3>
+      <p>تولید ویدئو، گیم‌پلی و محتوای تصویری</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <h3>هوش مصنوعی</h3>
+      <p>ساخت ابزارهای AI و ربات‌های پیام‌رسان</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="section-title">پروژه‌های <span>من</span></h2>
+  <p class="section-sub">چند تا از کارهایی که ساختم یا دارم می‌سازم</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-thumb">🤖</div>
+      <div class="project-body">
+        <h3>Amir AI</h3>
+        <p>دستیار هوش مصنوعی اختصاصی برای ویندوز با رابط گرافیکی Tkinter و اتصال به OpenRouter.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">API</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">📤</div>
+      <div class="project-body">
+        <h3>AmirShare</h3>
+        <p>ابزار انتقال سریع متن و کد بین گوشی و کامپیوتر از طریق شبکه محلی.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Kivy</span><span class="tag">WebSocket</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🐱</div>
+      <div class="project-body">
+        <h3>Gorba BOT</h3>
+        <p>ربات تلگرامی سرگرمی با سیستم امتیازدهی میو و پایگاه داده SQLite.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Telegram</span><span class="tag">SQLite</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">⛏️</div>
+      <div class="project-body">
+        <h3>PC Client</h3>
+        <p>کلاینت اختصاصی Minecraft 1.8.9 با Keystrokes، CPS Counter و FPS Counter.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Minecraft</span><span class="tag">Gradle</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🏰</div>
+      <div class="project-body">
+        <h3>PATREICK SERVER</h3>
+        <p>سرور Paper 1.16.5 با BedWars و محیط تمرین Bridging.</p>
+        <div class="tags"><span class="tag">Paper</span><span class="tag">Plugins</span><span class="tag">BedWars</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🎨</div>
+      <div class="project-body">
+        <h3>نور گراف</h3>
+        <p>صفحه طراحی و رسانه هنری با بیش از ۳۰۰ عضو و طراحی پوستر و بنر.</p>
+        <div class="tags"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Design</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <h2>بیا در ارتباط باشیم 💬</h2>
+    <p>برای همکاری، سفارش طراحی یا هر سوالی می‌تونی بهم پیام بدی</p>
+    <div class="socials">
+      <a href="#" class="social-btn" title="تلگرام">✈️</a>
+      <a href="#" class="social-btn" title="اینستاگرام">📷</a>
+      <a href="#" class="social-btn" title="گیت‌هاب">💻</a>
+      <a href="#" class="social-btn" title="ایمیل">✉️</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  ساخته شده با ❤️ توسط امیرحسین — ۲۰۲۵
+</footer>
+
+<script>
+// اسکرول نرم
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href'))
+      .scrollIntoView({ behavior:'smooth' });
+  });
+});
+
+// انیمیشن ورود کارت‌ها
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = '0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
